@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+
+    <body>
+        <div id="aRow">
+            <div class="container">
+                <img src="cloths/black.jpg" id="shirt">
+                <span id="showUp">5</span>
+                </img>
+                <button id="upper">Show more</button>
+            </div>
+            <div class="container">
+                <img src="cloths/black.jpg" id="pants">
+                <span id="showDown">5</span>
+                </img>
+                <button style="size: 200px;" id="lower">Show more</button>
+            </div>
+        </div>
+        <br>
+        <div id="footer">
+            <button id="AllB">shuffle both</button>
+        </div>
+
+    </body>
+
+    <script>
+        const upper = document.getElementById("upper");
+        upper.addEventListener("click", forTop);
+
+        function forTop() {
+            const a = ["black.jpg",
+                "cartoon.jpg",
+                "green.jpg",
+                "panda.jpg",
+                "red.jpg"];
+            let digit = Math.floor(Math.random() * a.length);
+            let shirt = document.getElementById("shirt");
+            shirt.src = "cloths/" + a[digit];
+
+            const app = document.querySelector("#showUp");
+            app.textContent = `${a[digit].slice(0, -4)}`
+
+        }
+
+        const lower = document.getElementById("lower");
+        lower.addEventListener("click", forbot);
+
+        function forbot() {
+            const a = ["black.jpg",
+                "cartoon.jpg",
+                "green.jpg",
+                "panda.jpg",
+                "red.jpg"];
+            let digit = Math.floor(Math.random() * a.length);
+            let pant = document.getElementById("pants");
+            pant.src = "cloths/" + a[digit];
+
+            const app = document.querySelector("#showDown");
+            app.textContent = `${a[digit].slice(0, -4)}`
+
+        }
+
+        let allb = document.getElementById("AllB")
+
+        function SB() {
+            forTop();
+            forbot();
+        }
+
+        allb.addEventListener("click", SB)
+
+    </script>
+
+</html>
